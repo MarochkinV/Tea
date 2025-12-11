@@ -1,0 +1,119 @@
+/*-----footer-----*/
+.footer {
+  background: #a9ada4;
+  padding: 20px 0;
+
+  .footer__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .footer__logo {
+    }
+
+    .footer__other-content {
+      display: flex;
+      align-items: center;
+
+      .footer__social {
+        .footer__social-text {
+          margin-bottom: 15px;
+          font-size: 18px;
+          color: rgb(32, 32, 29);
+        }
+
+        .footer__social-icons {
+          .social-link {
+            &:hover {
+              opacity: 0.9;
+            }
+
+            .social-icon {
+              margin-right: 14px;
+              transition: opacity 0.3s ease;
+            }
+          }
+        }
+      }
+      .button {
+        &.button--header {
+          padding: 13px 27px 13px 21px;
+        }
+      }
+      .footer__button {
+        margin: 0 88px 0 97px;
+
+        .button-icon {
+          display: none;
+        }
+      }
+
+      .сopyright {
+        font-size: 14px;
+        color: rgb(97, 97, 97);
+      }
+    }
+  }
+}
+
+//Adaptive
+@media (max-width: 766px) {
+  /*-----footer-----*/
+  .footer {
+    padding: 20px 0 96px 0;
+
+    .footer__container {
+      position: relative;
+
+      .footer__logo {
+        width: 50px;
+        height: 50px;
+
+        .logo-image {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .footer__other-content {
+        .footer__social {
+          margin-left: 28px;
+
+          .footer__social-text {
+            display: none;
+          }
+
+          .footer__social-icons {
+            .social-link {
+              .social-icon {
+                margin-right: 10px;
+              }
+            }
+
+          }
+        }
+
+        .footer__button {
+          margin: 0 18px 0 50px;
+
+          .button--header {
+            display: none;
+          }
+
+          .button-icon {
+            display: block;
+          }
+        }
+
+        .сopyright {
+          position: absolute;
+          left: 0;
+          top: 80px;
+        }
+      }
+    }
+  }
+}
+

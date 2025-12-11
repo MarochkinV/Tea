@@ -1,0 +1,240 @@
+//reviews-slider.component.scss
+.slider-container-bottom {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+
+  .slider.slider-2 {
+    min-height: 450px;
+    position: relative;
+    overflow: hidden;
+
+    .slider-review {
+
+      //display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 810px;
+      display: none;
+
+      &.active {
+        display: flex;
+      }
+
+
+      .review__image {
+        width: 390px;
+        height: 390px;
+
+        .review__image-photo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .review__text {
+        max-width: 390px;
+
+        .review__text-subtitle_name {
+          font-size: 24px;
+          color: rgb(63, 63, 61);
+          line-height: 1;
+          margin: 36px 0 15px 0;
+        }
+
+        .review__text-description {
+          font-size: 18px;
+          color: rgb(63, 63, 61);
+          line-height: 1.278;
+          margin: 20px 0;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slider-controls {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-dots-bottom {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  .dot-button-bottom {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.active {
+      background-color: #9FA57D;
+      border-color: #9FA57D;
+    }
+
+    &:hover {
+      background-color: #686d52;
+    }
+  }
+}
+
+
+.slider-arrows-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 810px;
+  margin: 0 auto;
+
+  .slick-prev-bottom,
+  .slick-next-bottom {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1;
+
+    img {
+      width: 16px;
+      height: 29px;
+    }
+  }
+
+}
+
+// Adaptive
+@media (max-width: 766px) {
+  .slider-container-bottom {
+    .slider.slider-2 {
+      .slider-review {
+        flex-direction: column;
+
+        .review__image {
+          width: 350px;
+          height: 350px;
+        }
+
+        .review__text {
+          max-width: 350px;
+        }
+      }
+    }
+
+    .slider-arrows-bottom {
+      margin-top: 10px;
+
+      .slick-prev-bottom {
+        position: static;
+      }
+
+      .slick-next-bottom {
+        position: static;
+      }
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .slider-container-bottom {
+
+    .slider-arrows-bottom {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      max-width: none;
+      margin: 0;
+
+      .slick-prev-bottom,
+      .slick-next-bottom {
+        position: static;
+        transform: none;
+      }
+
+      .slick-prev-bottom {
+        left: 0;
+        right: auto;
+        margin-left: 10px;
+      }
+
+      .slick-next-bottom {
+        right: 0;
+        left: auto;
+        margin-right: 10px;
+      }
+    }
+
+    .slider-controls {
+      position: static;
+      margin-top: 20px;
+      display: block;
+    }
+
+  }
+}
+
+
+@media (max-width: 480px) {
+  .slider-container-bottom {
+    .slider.slider-2 {
+      .slider-review {
+        .review__image {
+          width: 288px;
+          height: 290px;
+          margin-bottom: 15px;
+        }
+
+        .review__text {
+          max-width: 288px;
+
+          .review__text-subtitle_name {
+            display: none;
+          }
+
+          .review__text-description {
+            font-size: 16px;
+            color: rgb(63, 63, 61);
+            line-height: 1.188;
+            margin: 25px 0;
+          }
+        }
+      }
+    }
+
+    .slider-arrows-bottom {
+      justify-content: space-around;
+      margin-top: -40px;
+
+      .slick-prev-bottom {
+        margin-top: 10px;
+      }
+
+      .slick-next-bottom {
+        margin-top: 10px;
+      }
+    }
+  }
+}

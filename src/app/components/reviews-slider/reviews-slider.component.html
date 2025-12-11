@@ -1,0 +1,34 @@
+<!--reviews-slider.component.html-->
+<div class="slider-container-bottom">
+  <div class="slider slider-2">
+    <div *ngFor="let slide of reviewSlides; let i = index" class="slider-review" [class.active]="i === currentIndex">
+      <div class="review__image">
+        <img class="review__image-photo" [src]="slide.imagePhoto" [alt]="slide.imagePhotoAlt">
+      </div>
+      <div class="review__text">
+        <p class="review__text-subtitle_name">{{ slide.name }}</p>
+        <p class="review__text-description">{{ slide.description }}</p>
+      </div>
+    </div>
+  </div>
+  <!-- Стрелки и точки -->
+  <div class="slider-controls">
+    <div class="slider-dots-bottom">
+      <button
+        *ngFor="let slide of reviewSlides; let i = index"
+        (click)="goToSlide(i)"
+        [class.active]="i === currentIndex"
+        class="dot-button-bottom"
+        [attr.aria-label]="'Перейти к слайду ' + (i + 1)"
+      ></button>
+    </div>
+    <div class="slider-arrows-bottom">
+      <button class="slick-prev-bottom" (click)="goToPrevSlide()" aria-label="Предыдущий слайд">
+        <img src="assets/images/arrow_left.png" alt="Previous">
+      </button>
+      <button class="slick-next-bottom" (click)="goToNextSlide()" aria-label="Следующий слайд">
+        <img src="assets/images/arrow_right.png" alt="Next">
+      </button>
+    </div>
+  </div>
+</div>

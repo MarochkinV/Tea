@@ -1,0 +1,53 @@
+<!-- src/app/components/assortment-slider/assortment-slider.component.html -->
+<div class="slider-container">
+  <div class="slider slider-1">
+    <div *ngFor="let group of slideGroups; let i = index" class="slider__slide-group" [class.active]="i === currentIndex">
+      <div *ngFor="let slide of group" class="slider__item">
+        <div class="slider__item-info">
+          <div class="item-info__title">{{ slide.title }}</div>
+          <form class="item-info__form" action="">
+            <div class="gramme-selector">
+              <button class="small-circle minus" type="button" (click)="adjustWeight(slide, 'minus')"
+                      [disabled]="slide.grams <= 100">-
+              </button>
+              <span class="show-grams">{{ slide.grams }} гр.</span>
+              <button class="small-circle plus" type="button" (click)="adjustWeight(slide, 'plus')"
+                      [disabled]="slide.grams >= 10000">+
+              </button>
+            </div>
+            <span class="price">{{ slide.price | currency:'RUB':'руб.':'1.2-2' }}</span>
+            <button class="button submit-weight" type="submit">Заказать</button>
+          </form>
+        </div>
+        <div class="slider__item-image">
+          <img class="item-image__tea_pack" [src]="slide.imagePack" alt="Упаковка чая">
+          <img class="item-image__scattering" [src]="slide.imageScattering" alt="Россыпь чая">
+          <div class="item-image__icon">
+            <img class="icon-image" [src]="slide.imageIcon" [alt]="slide.imageIconAlt">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Стрелки и точки -->
+  <div class="slider-controls">
+    <div class="slider-dots">
+      <button
+        *ngFor="let group of slideGroups; let i = index"
+        (click)="goToSlide(i)"
+        [class.active]="i === currentIndex"
+        class="dot-button"
+        [attr.aria-label]="'Перейти к слайду ' + (i + 1)"
+      ></button>
+    </div>
+    <div class="slider-arrows">
+      <button class="slick-prev" (click)="goToPrevSlide()" aria-label="Предыдущий слайд">
+        <img src="assets/images/arrow_left.png" alt="Previous">
+      </button>
+      <button class="slick-next" (click)="goToNextSlide()" aria-label="Следующий слайд">
+        <img src="assets/images/arrow_right.png" alt="Next">
+      </button>
+    </div>
+  </div>
+</div>

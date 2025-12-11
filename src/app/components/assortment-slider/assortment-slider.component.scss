@@ -1,0 +1,305 @@
+// src/app/components/assortment-slider/assortment-slider.component.scss
+.slider-container {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+
+  .slider.slider-1 {
+    //min-height: 300px;
+    position: relative;
+    overflow: hidden;
+
+    .slider__slide-group {
+      justify-content: center;
+      gap: 20px;
+      display: none;
+
+      &.active {
+        display: flex; // Активная группа видима
+        // Если нужна анимация, можно добавить здесь transition и transform
+        // Но для простоты и надежности, пока оставим display: flex
+      }
+
+      .slider__item {
+        display: flex;
+        justify-content: space-between;
+        max-width: 420px;
+        margin-left: 65px;
+
+
+        .slider__item-info {
+          padding: 40px 0 66px 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .item-info__title {
+            font-size: 24px;
+            font-family: "Bebas Neue", sans-serif;
+            color: rgb(25, 25, 23);
+            line-height: 1.208;
+            width: 182px;
+          }
+
+          .item-info__form {
+            display: flex;
+            flex-direction: column;
+
+            .gramme-selector {
+              display: flex;
+              width: 112px;
+
+              .small-circle {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: none;
+                background-color: white;
+                cursor: pointer;
+                color: rgb(24, 24, 22);
+              }
+
+              .show-grams {
+                all: unset;
+                width: 62px;
+                margin-left: 10px;
+              }
+            }
+
+            .price {
+              margin: 20px 0 20px 0;
+            }
+
+            .submit-weight {
+              width: 160px;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .slider__item-image {
+          position: relative;
+
+          .item-image__scattering {
+            position: absolute;
+            bottom: 0;
+            left: -26px;
+          }
+
+          .item-image__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            left: 103px;
+
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider-controls {
+  position: relative;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+
+  .dot-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.active {
+      background-color: #9FA57D;
+      border-color: #9FA57D;
+    }
+
+    &:hover:not(&.active) {
+      background-color: #686d52;
+    }
+  }
+}
+
+.slider-arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 810px;
+  margin: 0 auto;
+
+  .slick-prev,
+  .slick-next {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1;
+    position: static;
+    transform: none;
+
+    img {
+      width: 16px;
+      height: 29px;
+    }
+
+    //&:focus {
+    //  outline: 2px solid #007bff;
+    //}
+  }
+}
+
+//Adaptive
+@media (max-width: 769px) {
+  .slider-container {
+    .slider.slider-1 {
+      .slider__slide-group {
+        flex-direction: column;
+        gap: 0;
+
+        &.active {
+          align-items: center;
+        }
+
+        .slider__item {
+          flex-direction: row-reverse;
+          //width: 204px;
+          //height: 100%;
+          //margin: 0 ;
+          gap: 32px;
+          margin-left: 0;
+          margin-bottom: 30px;
+
+          .slider__item-info {
+            padding: 0;
+            justify-content: space-between;
+            width: 122px;
+
+            .item-info__title {
+              font-size: 16px;
+              font-weight: 600;
+              width: 122px;
+            }
+
+            .item-info__form {
+              .submit-weight {
+                width: 95px;
+                padding: 5px 0;
+              }
+            }
+          }
+
+          .slider__item-image {
+            display: flex;
+
+            .item-image__tea_pack {
+              width: 90px;
+              height: 145px;
+            }
+
+            .item-image__scattering {
+              width: 66px;
+              height: 58px;
+              left: -20px;
+              bottom: 0;
+            }
+
+            .item-image__icon {
+              width: 56px;
+              height: 56px;
+              top: 0;
+              left: 50px;
+
+              .icon-image {
+                width: 35px;
+                height: 35px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .slider-arrows {
+      margin-top: -32px;
+      justify-content: space-around;
+
+      .slick-prev {
+        position: static;
+      }
+
+      .slick-next {
+        position: static;
+      }
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .slider-container {
+    .slider.slider-1 {
+      .slider__slide-group {
+        gap: 10px;
+        justify-content: space-around;
+
+        .slider__item {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .slider-arrows {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      max-width: none;
+      margin: 0;
+
+      .slick-prev,
+      .slick-next {
+        position: static;
+        transform: none;
+      }
+
+      .slick-prev {
+        left: 0;
+        right: auto;
+        margin-left: 10px;
+      }
+
+      .slick-next {
+        right: 0;
+        left: auto;
+        margin-right: 10px;
+      }
+    }
+
+    .slider-controls {
+      position: static;
+      margin-top: 20px;
+      display: block;
+    }
+  }
+}
+
