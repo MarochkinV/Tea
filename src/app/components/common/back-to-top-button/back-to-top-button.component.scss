@@ -1,0 +1,35 @@
+//Кнопка вверх
+$button-size: 40px;
+$button-color: rgba(89, 101, 25, 0.5);
+$button-hover-opacity: 0.8;
+$arrow-color: #fff;
+$arrow-size: 15px;
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: $button-size;
+  height: $button-size;
+  background-color: $button-color;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: $button-hover-opacity;
+  }
+
+  &::after {
+    content: '';
+    width: $arrow-size;
+    height: $arrow-size;
+    border-top: 3px solid $arrow-color;
+    border-right: 3px solid $arrow-color;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}

@@ -1,4 +1,3 @@
-<!-- src/app/components/assortment-slider/assortment-slider.component.html -->
 <div class="slider-container">
   <div class="slider slider-1">
     <div *ngFor="let group of slideGroups; let i = index" class="slider__slide-group" [class.active]="i === currentIndex">
@@ -43,10 +42,10 @@
     </div>
     <div class="slider-arrows">
       <button class="slick-prev" (click)="goToPrevSlide()" aria-label="Предыдущий слайд">
-        <img src="assets/images/arrow_left.png" alt="Previous">
+        <img src="../../../../assets/images/arrow_left.png" alt="Previous">
       </button>
       <button class="slick-next" (click)="goToNextSlide()" aria-label="Следующий слайд">
-        <img src="assets/images/arrow_right.png" alt="Next">
+        <img src="../../../../assets/images/arrow_right.png" alt="Next">
       </button>
     </div>
   </div>

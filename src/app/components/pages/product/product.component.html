@@ -1,0 +1,27 @@
+<div class="container">
+  <!--loader-->
+  <div *ngIf="isLoading" class="loading">
+    <div class="dot-spinner">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div>Загружаю товар...</div>
+  </div>
+
+  <div *ngIf="!isLoading && !error && product" class="product">
+    <div class="subtitle product__title">{{ product.title }}</div>
+    <div class="product__container">
+      <div class="product__image">
+        <img class="card-image__scattering" [src]="product.image" [alt]="product.title">
+      </div>
+      <div class="product__buy">
+        <div class="product__description">{{ product.description }}</div>
+        <div class="product__action">
+          <div class="product__price">{{ product.price | currency:'RUB':'руб.':'1.2-2' }}</div>
+          <button class="button product__button">Купить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

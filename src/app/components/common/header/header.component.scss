@@ -1,5 +1,5 @@
 .header__background{
-  background-image: url('../../../assets/images/background_main.png');
+  background-image: url('../../../../assets/images/background_main.png');
   background-size: cover;
   height: 1010px;
   width: 100%;
@@ -18,7 +18,7 @@ span {
 
 
 .header {
-  padding: 20px 20px;
+  padding: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;

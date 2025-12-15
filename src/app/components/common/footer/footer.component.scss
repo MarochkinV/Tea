@@ -16,6 +16,7 @@
       align-items: center;
 
       .footer__social {
+        margin-right: 2rem;
         .footer__social-text {
           margin-bottom: 15px;
           font-size: 18px;
@@ -60,7 +61,7 @@
 @media (max-width: 766px) {
   /*-----footer-----*/
   .footer {
-    padding: 20px 0 96px 0;
+    padding: 20px 20px 96px 20px;
 
     .footer__container {
       position: relative;

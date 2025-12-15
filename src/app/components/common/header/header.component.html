@@ -4,31 +4,20 @@
   <div class="header">
     <!-- Логотип -->
     <div class="header__logo">
-      <img class="logo-image" src="assets/images/logo.png" alt="логотип">
+      <img class="logo-image" src="../../../../assets/images/logo.png" alt="логотип">
     </div>
 
     <!-- Навигация -->
     <nav class="header__nav">
       <ul class="header__menu" id="menu" [class.active]="isMenuOpen">
         <li class="header__menu-item" id="aboutUs">
-          <a href="#" class="header__menu-link">О нас</a>
+          <a routerLink="/" class="header__menu-link" (click)="closeMenu()">Главная</a>
         </li>
         <li class="header__menu-item" id="usAssortment">
-          <a href="#" class="header__menu-link">Наш ассортимент</a>
-        </li>
-        <li class="header__menu-item" id="orderTea">
-          <a href="#" class="header__menu-link">Оформить заказ</a>
-        </li>
-        <li class="header__menu-item" id="contacts">
-          <a href="#" class="header__menu-link">Контакты</a>
+          <a routerLink="catalog" class="header__menu-link" (click)="closeMenu()">Каталог</a>
         </li>
       </ul>
     </nav>
-
-    <!-- Кнопка действия -->
-    <div class="header__button">
-      <a href="#" class="button button--header">Связаться с нами</a>
-    </div>
 
     <!-- Бургер -->
     <div class="header__burger" (click)="toggleMenu()" [class.active]="isMenuOpen">

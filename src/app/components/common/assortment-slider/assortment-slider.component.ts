@@ -1,9 +1,8 @@
-//assortment-slider.component.ts
 import {Component, OnInit} from '@angular/core';
-import {ProductSlide} from '../../types/product.slide';
+import {ProductSlide} from '../../../types/product.slide';
 
 @Component({
-  selector: 'assortment-slider',
+  selector: 'assortment',
   templateUrl: './assortment-slider.component.html',
   styleUrls: ['./assortment-slider.component.scss']
 })

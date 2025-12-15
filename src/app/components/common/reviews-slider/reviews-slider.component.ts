@@ -1,6 +1,6 @@
 //reviews-slider.component.ts
 import {Component} from '@angular/core';
-import {ReviewSlide} from '../../types/review.slide';
+import {ReviewSlide} from '../../../types/review.slide';
 
 @Component({
   selector: 'reviews-slider',

@@ -1,0 +1,27 @@
+<div class="subtitle subtitle-catalog">Наш каталог</div>
+
+<div class="container">
+  <!--loader-->
+  <div *ngIf="isLoading" class="loading">
+    <div class="dot-spinner">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div>Загружаем каталог...</div>
+  </div>
+</div>
+
+<div class="container container-cards">
+  <div class="card" *ngFor="let product of products">
+    <div class="card__item-image">
+      <img class="card-image__scattering" src="{{product.image}}" alt="Россыпь чая">
+    </div>
+    <div class="card__item-info">
+      <div class="card-info__title">{{ product.title }}</div>
+      <button class="button button-card" [routerLink]="['/product', product.id]">Подробнее</button>
+    </div>
+  </div>
+</div>
+
+

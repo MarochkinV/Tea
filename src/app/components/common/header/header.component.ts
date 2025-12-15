@@ -24,4 +24,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  protected readonly scroll = scroll;
+  protected readonly scrollTo = scrollTo;
 }
