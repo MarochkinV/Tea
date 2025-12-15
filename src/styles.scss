@@ -34,14 +34,19 @@ body {
   margin: 0;
 }
 
+//Сдвигаем футер к низу экрана
 .app-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
 
-.main-content {
-  flex: 1;
+  :host ::ng-deep > *:not(app-header):not(app-footer) {
+    flex: 1;
+    display: block;
+  }
+}
+footer-component{
+  margin-top: auto;
 }
 
 .main {
@@ -61,6 +66,7 @@ body {
   display: inline-block;
   font-size: 18px;
   color: rgb(24, 24, 22);
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.7);
@@ -864,7 +870,6 @@ body .mfp-close {
 }
 
 
-
 //Adaptive
 @media (max-width: 1330px) {
   .weHave__container {
@@ -1575,8 +1580,13 @@ body .mfp-close {
   animation: bounce 1.4s infinite ease-in-out both;
 }
 
-.dot:nth-child(1) { animation-delay: -0.32s; }
-.dot:nth-child(2) { animation-delay: -0.16s; }
+.dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
 
 @keyframes bounce {
   0%, 80%, 100% {

@@ -1,0 +1,13 @@
+<!--popup.component.html-->
+<div class="popup-overlay" *ngIf="isVisible" (click)="close()">
+  <div class="popup-content" (click)="$event.stopPropagation()">
+    <div class="popup-close" (click)="close()">&times;</div>
+
+    <div class="popup-body">
+      <h3 class="popup-title">Посмотрите наши чайные коллекции</h3>
+      <button class="button popup-button" (click)="goToCatalog()">
+        Смотреть
+      </button>
+    </div>
+  </div>
+</div>

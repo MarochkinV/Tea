@@ -1,3 +1,4 @@
+//app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -15,8 +16,9 @@ import { MainComponent } from './components/pages/main/main.component';
 import { CardComponent } from './components/pages/card/card.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ProductComponent } from './components/pages/product/product.component';
-import {RouterModule} from "@angular/router";
 import { BackToTopButtonComponent } from './components/common/back-to-top-button/back-to-top-button.component';
+import { PopupComponent } from './components/common/popup/popup.component';
+import {FormsModule} from "@angular/forms";
 
 
 registerLocaleData(localeRu, 'ru');
@@ -33,12 +35,13 @@ registerLocaleData(localeRu, 'ru');
     CardComponent,
     ProductComponent,
     BackToTopButtonComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
-    RouterModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'ru' }
