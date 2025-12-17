@@ -1,7 +1,8 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy, PLATFORM_ID, Inject} from '@angular/core';
 import {timer, Subscription} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'main',
@@ -18,8 +19,39 @@ export class MainComponent implements OnInit, OnDestroy {
     return !dontShow || dontShow !== 'true';
   }
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  }
+
   ngOnInit(): void {
     this.showPopupWithDelay();
+    this.initWow();
+  }
+
+  initWow(): void {
+    // Проверяем, что в браузере
+    if (isPlatformBrowser(this.platformId)) {
+      // @ts-ignore
+      import('wow.js').then(WowModule => {
+        const WOW = WowModule.default;
+
+        new WOW({
+          boxClass: 'wow',
+          animateClass: 'animate__animated',
+          offset: 0,
+          mobile: true,
+          live: true
+        }).init();
+
+        // После инициализации, если есть динамический контент
+        setTimeout(() => {
+          if (typeof (window as any).WOW !== 'undefined') {
+            (window as any).WOW.sync();
+          }
+        }, 1000);
+      }).catch(error => {
+        console.error('Не удалось загрузить WOW.js:', error);
+      });
+    }
   }
 
   showPopupWithDelay(): void {
@@ -27,7 +59,6 @@ export class MainComponent implements OnInit, OnDestroy {
       return;
     }
 
-    //Popup появляется через десять сек
     this.popupSubscription = timer(10000)
       .pipe(
         takeUntil(this.destroy$)
