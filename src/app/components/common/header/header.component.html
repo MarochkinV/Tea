@@ -2,12 +2,10 @@
 </div>
 <div class="container">
   <div class="header">
-    <!-- Логотип -->
     <div class="header__logo">
       <img class="logo-image" src="../../../../assets/images/logo.png" alt="логотип">
     </div>
 
-    <!-- Навигация -->
     <nav class="header__nav">
       <ul class="header__menu" id="menu" [class.active]="isMenuOpen">
         <li class="header__menu-item" id="aboutUs">
@@ -19,14 +17,12 @@
       </ul>
     </nav>
 
-    <!-- Бургер -->
     <div class="header__burger" (click)="toggleMenu()" [class.active]="isMenuOpen">
       <span></span>
       <span></span>
       <span></span>
     </div>
 
-    <!-- Оверлей -->
     <div class="header__overlay" (click)="closeMenu()" [class.active]="isMenuOpen"></div>
   </div>
 </div>

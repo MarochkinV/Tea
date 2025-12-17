@@ -1,5 +1,5 @@
 <div class="container">
-  <!--loader-->
+
   <div *ngIf="isLoading" class="loading">
     <div class="dot-spinner">
       <div class="dot"></div>
@@ -19,7 +19,13 @@
         <div class="product__description">{{ product.description }}</div>
         <div class="product__action">
           <div class="product__price">{{ product.price | currency:'RUB':'руб.':'1.2-2' }}</div>
-          <button class="button product__button">Купить</button>
+          <button
+            *ngIf="product"
+            class="button product__button"
+            [routerLink]="['/order']"
+            [queryParams]="{ product: product.title }">
+            Купить
+          </button>
         </div>
       </div>
     </div>

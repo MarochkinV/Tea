@@ -1,11 +1,9 @@
-// src/app/components/assortment-slider/assortment-slider.component.scss
 .slider-container {
   position: relative;
   width: 100%;
   margin-top: 50px;
 
   .slider.slider-1 {
-    //min-height: 300px;
     position: relative;
     overflow: hidden;
 
@@ -15,9 +13,7 @@
       display: none;
 
       &.active {
-        display: flex; // Активная группа видима
-        // Если нужна анимация, можно добавить здесь transition и transform
-        // Но для простоты и надежности, пока оставим display: flex
+        display: flex;
       }
 
       .slider__item {
@@ -160,10 +156,6 @@
       width: 16px;
       height: 29px;
     }
-
-    //&:focus {
-    //  outline: 2px solid #007bff;
-    //}
   }
 }
 
@@ -181,9 +173,6 @@
 
         .slider__item {
           flex-direction: row-reverse;
-          //width: 204px;
-          //height: 100%;
-          //margin: 0 ;
           gap: 32px;
           margin-left: 0;
           margin-bottom: 30px;

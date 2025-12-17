@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="subtitle order__title">Оформление заказа</div>
+</div>
+
+<div class="container order-container">
+  <div *ngIf="orderSuccess" class="success-message">
+    <button class="close-btn" (click)="goToCatalog()" title="Закрыть">×</button>
+    <div class="order__subtitle">Спасибо за заказ!</div>
+  </div>
+
+  <form *ngIf="!orderSuccess" [formGroup]="orderForm" (ngSubmit)="onSubmit()" novalidate class="order-form">
+    <div class="form-row">
+      <div class="form-group-order">
+        <label for="name">Имя</label>
+        <input type="text" id="name" formControlName="name" placeholder="Введите ваше имя">
+        <div *ngIf="orderForm.get('name')?.invalid && orderForm.get('name')?.touched" class="error-message">
+          <span *ngIf="orderForm.get('name')?.errors?.['required']">Имя обязательно</span>
+          <span *ngIf="orderForm.get('name')?.errors?.['pattern']">Можно вводить только буквы</span>
+        </div>
+      </div>
+
+      <div class="form-group-order">
+        <label for="last_name">Фамилия</label>
+        <input type="text" id="last_name" formControlName="last_name" placeholder="Введите вашу фамилию">
+        <div *ngIf="orderForm.get('last_name')?.invalid && orderForm.get('last_name')?.touched" class="error-message">
+          <span *ngIf="orderForm.get('last_name')?.errors?.['required']">Фамилия обязательна</span>
+          <span *ngIf="orderForm.get('last_name')?.errors?.['pattern']">Можно вводить только буквы</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group-order">
+      <label for="phone">Телефон</label>
+      <input type="tel" id="phone" formControlName="phone" placeholder="+79991234567">
+      <div *ngIf="orderForm.get('phone')?.invalid && orderForm.get('phone')?.touched" class="error-message">
+        <span *ngIf="orderForm.get('phone')?.errors?.['required']">Телефон обязателен</span>
+        <span *ngIf="orderForm.get('phone')?.errors?.['pattern'] || orderForm.get('phone')?.errors?.['phoneValidator']">
+                    Введите корректный номер
+                </span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group-order">
+        <label for="country">Страна</label>
+        <input type="text" id="country" formControlName="country" placeholder="Россия">
+        <div *ngIf="orderForm.get('country')?.invalid && orderForm.get('country')?.touched" class="error-message">
+          <span *ngIf="orderForm.get('country')?.errors?.['required']">Страна обязательна</span>
+        </div>
+      </div>
+
+      <div class="form-group-order">
+        <label for="zip">Индекс</label>
+        <input type="text" id="zip" formControlName="zip" placeholder="123456">
+        <div *ngIf="orderForm.get('zip')?.invalid && orderForm.get('zip')?.touched" class="error-message">
+          <span *ngIf="orderForm.get('zip')?.errors?.['required']">Индекс обязателен</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group-order">
+      <label for="product">Товар</label>
+      <input type="text" id="product" formControlName="product" [readonly]="true">
+    </div>
+
+    <div class="form-group-order">
+      <label for="address">Адрес доставки</label>
+      <input type="text" id="address" formControlName="address" placeholder="ул. Чурина, д. 5, кв. 1">
+      <div *ngIf="orderForm.get('address')?.invalid && orderForm.get('address')?.touched" class="error-message">
+        <span *ngIf="orderForm.get('address')?.errors?.['required']">Адрес обязателен</span>
+        <span *ngIf="orderForm.get('address')?.errors?.['pattern']">
+                    Вводить нужно буквы, цифры, пробелы, дефис и слеш
+                </span>
+      </div>
+    </div>
+
+    <div class="form-group-order">
+      <label for="comment">Комментарий к заказу (необязательно)</label>
+      <textarea class="comment" id="comment" formControlName="comment" rows="3"
+                placeholder="Ваши пожелания к заказу..."></textarea>
+    </div>
+
+    <div class="form-submit">
+      <button type="submit" class="button product__button" [disabled]="orderForm.invalid || isSubmitting">
+        {{ isSubmitting ? 'Отправка...' : 'Оформить заказ' }}
+      </button>
+      <div *ngIf="submitError" class="submit-error">
+        Произошла ошибка. Попробуйте еще раз.
+      </div>
+    </div>
+
+  </form>
+</div>

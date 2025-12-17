@@ -1,9 +1,8 @@
-//popup.component.ts
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-popup',
+  selector: 'popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss']
 })

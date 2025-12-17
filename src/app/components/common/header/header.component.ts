@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, } from '@angular/core';
 
 @Component({
   selector: 'header-component',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
- // Бургер меню
+export class HeaderComponent {
+
   isMenuOpen: boolean = false;
 
   toggleMenu(): void {
@@ -17,13 +17,7 @@ export class HeaderComponent implements OnInit {
     this.isMenuOpen = false;
   }
 
-
   constructor() {
   }
 
-  ngOnInit(): void {
-  }
-
-  protected readonly scroll = scroll;
-  protected readonly scrollTo = scrollTo;
 }

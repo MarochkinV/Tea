@@ -11,7 +11,7 @@ import {delay} from "rxjs";
 })
 export class ProductComponent implements OnInit {
   product: ProductCard | null = null;
-  isLoading = true;
+  isLoading: boolean = true;
   error: string | null = null;
 
   constructor(
@@ -34,7 +34,7 @@ export class ProductComponent implements OnInit {
     this.http.get<ProductCard>(`https://testologia.ru/tea?id=${id}`)
       //Тестовая задержка для проверки лоадера
       .pipe(
-        delay(1500)
+        delay(500)
       )
       .subscribe({
         next: (data) => {

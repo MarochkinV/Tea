@@ -25,7 +25,7 @@ export class CatalogComponent implements OnInit {
     this.http.get<ProductCard[]>('https://testologia.ru/tea')
       //Тестовая задержка для проверки лоадера
       .pipe(
-        delay(1500)
+        delay(500)
       )
       .subscribe({
         next: (data) => {

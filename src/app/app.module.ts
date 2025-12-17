@@ -1,4 +1,3 @@
-//app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,12 +12,12 @@ import localeRu from '@angular/common/locales/ru';
 import { LOCALE_ID } from '@angular/core';
 import { CatalogComponent } from './components/pages/catalog/catalog.component';
 import { MainComponent } from './components/pages/main/main.component';
-import { CardComponent } from './components/pages/card/card.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ProductComponent } from './components/pages/product/product.component';
 import { BackToTopButtonComponent } from './components/common/back-to-top-button/back-to-top-button.component';
 import { PopupComponent } from './components/common/popup/popup.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { OrderComponent } from './components/pages/order/order.component';
 
 
 registerLocaleData(localeRu, 'ru');
@@ -32,16 +31,17 @@ registerLocaleData(localeRu, 'ru');
     ReviewsSliderComponent,
     CatalogComponent,
     MainComponent,
-    CardComponent,
     ProductComponent,
     BackToTopButtonComponent,
     PopupComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'ru' }

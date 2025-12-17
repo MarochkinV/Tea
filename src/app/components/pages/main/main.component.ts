@@ -1,4 +1,3 @@
-//main.component.ts
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {timer, Subscription} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -28,7 +27,7 @@ export class MainComponent implements OnInit, OnDestroy {
       return;
     }
 
-    // Создаем таймер на 10 секунд
+    //Popup появляется через десять сек
     this.popupSubscription = timer(10000)
       .pipe(
         takeUntil(this.destroy$)
